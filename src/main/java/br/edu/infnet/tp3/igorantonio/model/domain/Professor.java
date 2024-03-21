@@ -1,6 +1,6 @@
 package br.edu.infnet.tp3.igorantonio.model.domain;
 
-public class Professor {
+public class Professor extends Escola {
 	
 	
  	private String nome;
@@ -11,6 +11,10 @@ public class Professor {
     public String toString() {
     	return "Nome do Professor: " + nome +
     			"\nEscola no qual trabalha: " + escola.getName();
+    }
+    
+    public Professor() {
+    	
     }
     
     public Professor(String nome, Escola escola) {

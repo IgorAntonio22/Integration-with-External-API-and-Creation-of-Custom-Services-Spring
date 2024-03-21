@@ -43,6 +43,15 @@ public class EscolaService {
         }
     }
 
+    public Escola getEscolaByIdEspecifico(int id) {
+    	for(Escola escola : listaDeEscolas) {
+    		if(escola.getId() == id) {
+    			return listaDeEscolas.get(id);
+    		}
+    	}
+    	return null;
+    }
+    
 	public TodasAsEscolas getEscolasAPI() {
 		return escolasAPI;
 	}

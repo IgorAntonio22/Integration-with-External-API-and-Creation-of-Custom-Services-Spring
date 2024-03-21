@@ -34,13 +34,19 @@ public class EscolaLoader implements ApplicationRunner {
 			escolaIgor.setProfessor(professorFabio);
 			
 			escolaService.incluirUmaEscola(escolaIgor);			
-			System.out.println(escolaService.getEscolas());
+			//System.out.println(escolaService.getEscolas());
 			
 			professorService.incluirProfessor(professorFabio);
 			
 			//professorService.getProfessoresCadastrados();
-			professorService.getListaDeProfessoresByIdDaEscola(11111);
-			professorService.getListaDeProfessoresByIdDaEscola(31335045);
+			//professorService.getListaDeProfessoresByIdDaEscola(11111);
+			//professorService.getListaDeProfessoresByIdDaEscola(31335045);
+			
+			Professor professoraAlexia = new Professor("Alexia", escolaService.getEscolaByIdEspecifico(11111));
+			professorService.incluirProfessor(professoraAlexia);
+			
+			System.out.println(escolaService.getEscolas());
+			professorService.getProfessoresCadastrados();
 			
 	}
 	

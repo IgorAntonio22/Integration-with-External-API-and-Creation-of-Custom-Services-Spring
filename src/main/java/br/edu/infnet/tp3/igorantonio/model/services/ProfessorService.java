@@ -51,6 +51,12 @@ public class ProfessorService {
 		   
 	   }
    }
+   
+   public void incluirNovoProfessorEmUmaEscolaEspecificaPeloIdDaEscola(Professor professor, int idDaEscola ) {
+	   Escola escola = escolaService.getEscolaByIdEspecifico(idDaEscola);
+	   escola.setProfessor(professor);
+	   professores.add(professor);
+   }
 }
 
   
