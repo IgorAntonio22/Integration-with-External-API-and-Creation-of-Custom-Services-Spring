@@ -9,6 +9,7 @@ import br.edu.infnet.tp3.igorantonio.clients.IEscolaClient;
 import br.edu.infnet.tp3.igorantonio.model.domain.Escola;
 import br.edu.infnet.tp3.igorantonio.model.domain.Professor;
 import br.edu.infnet.tp3.igorantonio.model.services.EscolaService;
+import br.edu.infnet.tp3.igorantonio.model.services.ProfessorService;
 
 @Component
 public class EscolaLoader implements ApplicationRunner {
@@ -16,6 +17,8 @@ public class EscolaLoader implements ApplicationRunner {
 	@Autowired
 	EscolaService escolaService;
 	
+	@Autowired
+	ProfessorService professorService;
 	
 	@Override
 	public void run(ApplicationArguments args) throws Exception {
@@ -27,14 +30,18 @@ public class EscolaLoader implements ApplicationRunner {
 			escolaIgor.setId(11111);
 			escolaIgor.setName("EscolaDoIguinho");
 			escolaIgor.setYear("2002");	
-			Professor professorFabio = new Professor("Fabio", escolaIgor);
+			Professor professorFabio = new Professor("Fabio o tonin", escolaIgor);
 			escolaIgor.setProfessor(professorFabio);
 			
-			escolaService.incluirUmaEscola(escolaIgor);
+			escolaService.incluirUmaEscola(escolaIgor);			
 			System.out.println(escolaService.getEscolas());
 			
-			escolaService.excluirUmaEscolaPeloNome("EscolaDoIguinho");
-			System.out.println(escolaService.getEscolas());
+			professorService.incluirProfessor(professorFabio);
+			
+			//professorService.getProfessoresCadastrados();
+			professorService.getListaDeProfessoresByIdDaEscola(11111);
+			professorService.getListaDeProfessoresByIdDaEscola(31335045);
+			
 	}
 	
 	

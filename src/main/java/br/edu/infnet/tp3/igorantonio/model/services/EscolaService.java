@@ -1,9 +1,6 @@
 package br.edu.infnet.tp3.igorantonio.model.services;
 
-import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,6 +41,23 @@ public class EscolaService {
                 i--; // Decrementa o índice para compensar a remoção do elemento
             }
         }
-
     }
+
+	public TodasAsEscolas getEscolasAPI() {
+		return escolasAPI;
+	}
+
+	public void setEscolasAPI(TodasAsEscolas escolasAPI) {
+		this.escolasAPI = escolasAPI;
+	}
+
+	public List<Escola> getListaDeEscolas() {
+		return listaDeEscolas;
+	}
+
+	public void setListaDeEscolas(List<Escola> listaDeEscolas) {
+		this.listaDeEscolas = listaDeEscolas;
+	}
+    
+    
 }
