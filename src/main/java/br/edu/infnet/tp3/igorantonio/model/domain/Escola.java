@@ -5,16 +5,19 @@ import java.util.List;
 
 public class Escola extends TodasAsEscolas {
 
+	private String result = null;
 	private int id;
 	private String year;
 	private String name;
 	private List<Professor> professores = new ArrayList<Professor>();
 	
+
 	@Override
 	public String toString() {
-		return "ID da escola: " + id +
-				"\nNome da escola: " + name +
-				"\nAno de construção: " + year;
+		return "ID da escola: " + this.id +
+				"\nNome da escola: " + this.name +
+				"\nAno de construção: " + this.year +
+				"\nProfessores dessa escola:" + this.professores + "\n";
 	}
 	
 	public int getId() {
@@ -24,7 +27,7 @@ public class Escola extends TodasAsEscolas {
 		this.id = id;
 	}
 	public String getName() {
-		return name;
+		return this.name;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -43,5 +46,7 @@ public class Escola extends TodasAsEscolas {
 	public void setProfessor(Professor professor) {
 		this.professores.add(professor);
 	}
+	
+	
 	
 }

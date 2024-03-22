@@ -1,41 +1,52 @@
 package br.edu.infnet.tp3.igorantonio.model.domain;
 
-public class Professor extends Escola {
+public class Professor {
 	
-	
+	private int id;
  	private String nome;
-    private Escola escola;
+    private int idDaEscola;
     
     
     @Override
     public String toString() {
-    	return "Nome do Professor: " + nome +
-    			"\nEscola no qual trabalha: " + escola.getName();
+    	return "\nID do professor: " + this.id
+    			+ "\nNome do Professor: " + this.nome +
+    			"\nEscola no qual trabalha: " + idDaEscola + "\n";
     }
     
     public Professor() {
     	
     }
     
-    public Professor(String nome, Escola escola) {
+    public Professor(int id, String nome, int escola) {
+    	this.id = id;
         this.nome = nome;
-        this.escola = escola;
+        this.idDaEscola = escola;
     }
 
     public String getNome() {
         return nome;
     }
 
-    public Escola getEscola() {
-        return escola;
-    }
-
-    public void setEscola(Escola escola) {
-        this.escola = escola;
-    }
-
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIdDaEscola() {
+		return idDaEscola;
+	}
+
+	public void setIdDaEscola(int idDaescola) {
+		this.idDaEscola = idDaescola;
+	}
+
+	
 }

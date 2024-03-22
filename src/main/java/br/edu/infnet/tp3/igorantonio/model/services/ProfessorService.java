@@ -19,44 +19,58 @@ public class ProfessorService {
     @Autowired
     EscolaService escolaService;
     
-    private static List<Professor> professores = new ArrayList<Professor>();
     
     @PostConstruct //faz com que essa função inicialize automaticamente após a injeção de dependência do escolaClient
     public void init() {
        
     }
     
-    public void incluirProfessor(Professor professor) {
-    	professores.add(professor);
+    public void incluirProfessor(String nomeDaEscola ,Professor professor) {
+    	escolaService.getEscolaByNomeDaEscola(nomeDaEscola).setProfessor(professor);
     }
     
-    public void getProfessoresCadastrados() {
+    public void getProfessoresCadastrados(String nomeDaEscola) {
     	
-    	for(int i = 0; i < professores.size(); i++) {
+    	for(int i = 0; i < escolaService.getEscolaByNomeDaEscola("EscolaDoIguinho").getProfessores().size(); i++) {
     		 		
-    		System.out.println(professores.get(i));
+    		System.out.println(escolaService.getEscolaByNomeDaEscola("EscolaDoIguinho").getProfessores().get(i));
     		
     	}
     }
     	
-   public void getListaDeProfessoresByIdDaEscola(int id) {
+   public List<Professor> getListaDeProfessoresByIdDaEscola(int id) {
 	   
-	   for(int i = 0; i < escolaService.getListaDeEscolas().size(); i++) {
-		   List<Escola> escolas = escolaService.getListaDeEscolas();
+	   for(int i = 0; i < escolaService.getEscolas().size(); i++) {
+		   List<Escola> escolas = escolaService.getEscolas();
 		   
 		   if(escolas.get(i).getId() == id) {
 			   List<Professor> professores = escolas.get(i).getProfessores();
-			   System.out.println(professores.toString());   
+			   return professores;
 		   }
 		   
 	   }
+	   return null;
    }
    
    public void incluirNovoProfessorEmUmaEscolaEspecificaPeloIdDaEscola(Professor professor, int idDaEscola ) {
 	   Escola escola = escolaService.getEscolaByIdEspecifico(idDaEscola);
 	   escola.setProfessor(professor);
-	   professores.add(professor);
+	   escolaService.getEscolaByNomeDaEscola("EscolaDoIguinho").setProfessor(professor);
    }
+   
+   public void excluirProfessorEmUmaEscolaEspecifica(String nomeDaEscola, int id) {
+	    Escola escolaSelecionada = escolaService.getEscolaByNomeDaEscola(nomeDaEscola);
+	    List<Professor> professores = escolaSelecionada.getProfessores();
+
+	    List<Professor> copiaProfessores = new ArrayList<>(professores);
+
+	    for (Professor professor : copiaProfessores) {
+	        if (professor.getId() == id) {
+	            professores.remove(professor);
+	        }
+	    }
+	}
 }
+
 
   
