@@ -1,0 +1,162 @@
+{
+	"info": {
+		"_postman_id": "1291458e-f20c-4da7-a6e3-7abdd011d72c",
+		"name": "API - Igor - TP3 - Escolas e Professores",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33626128"
+	},
+	"item": [
+		{
+			"name": "escola",
+			"item": [
+				{
+					"name": "obterEscolas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/escolas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"escolas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incluirEscola",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"result\": null,\r\n    \"id\": 3,\r\n    \"year\": \"2002\",\r\n    \"name\":\"ESCOLA DO IGOR\",\r\n    \"professores\": []\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/escolas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"escolas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deletarEscolaPeloId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/escolas/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"escolas",
+								"3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "professor",
+			"item": [
+				{
+					"name": "obterListaDeProfessoresPeloIdDaEscola",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/3/professores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"3",
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "incluirProfessorPeloIdDaEscola",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Igor Antonio Almeida Santos\",\r\n    \"idDaEscola\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/3/professores",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"3",
+								"professores"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "excluirProfessorPeloIdDaEscolaEPeloSeuId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/3/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"3",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
