@@ -1,6 +1,7 @@
 package br.edu.infnet.tp3.igorantonio.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -22,7 +23,7 @@ public class EscolaController {
 	EscolaService escolaService;
 	
 	@GetMapping(value = "/escolas", name = "getTodasAsEscolas")
-	List<Escola> obterEscolas() {
+	Set<Escola> obterEscolas() {
 		return escolaService.getEscolas();
 	}
 	

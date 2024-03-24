@@ -1,6 +1,7 @@
 package br.edu.infnet.tp3.igorantonio.model.services;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -51,18 +52,17 @@ public class ProfessorService {
     }
     	
    public Set<Professor> getListaDeProfessoresByIdDaEscola(int id) {
+	   Set<Escola> escolas = escolaService.getEscolas();
 	   
-	   for(int i = 0; i < escolaService.getEscolas().size(); i++) {
-		   List<Escola> escolas = escolaService.getEscolas();
-		   
-		   if(escolas.get(i).getId() == id) {
-			   Set<Professor> professores = escolas.get(i).getProfessores();
-			   return professores;
+	   for(Escola escola: escolas ) {
+		  if(escola.getId() == id) {
+			  Set<Professor> professores = escola.getProfessores();
+			  return professores;
 		   }
-		   
 	   }
 	   return null;
    }
+  
    
    public void incluirNovoProfessorEmUmaEscolaEspecificaPeloIdDaEscola(Professor professor, int idDaEscola ) {
 	   Escola escola = escolaService.getEscolaByIdEspecifico(idDaEscola);
@@ -74,13 +74,7 @@ public class ProfessorService {
 	    Escola escolaSelecionada = escolaService.getEscolaByNomeDaEscola(nomeDaEscola);
 	    Set<Professor> professores = escolaSelecionada.getProfessores();
 
-	    List<Professor> copiaProfessores = new ArrayList<>(professores);
-
-	    for (Professor professor : copiaProfessores) {
-	        if (professor.getId() == id) {
-	            professores.remove(professor);
-	        }
-	    }
+	    professores.removeIf(professor -> professor.getId() == id);
 	}
 }
 

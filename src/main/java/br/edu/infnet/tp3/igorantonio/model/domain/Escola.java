@@ -3,7 +3,10 @@ package br.edu.infnet.tp3.igorantonio.model.domain;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Escola extends TodasAsEscolas {
 
@@ -11,7 +14,8 @@ public class Escola extends TodasAsEscolas {
 	private int id;
 	private String year;
 	private String name;
-	private static Set<Professor> professores = new HashSet<Professor>();
+	private Set<Professor> professores = new HashSet<Professor>();
+	@JsonIgnore
 	private Set<String> nomeDosProfessores = new HashSet<String>();
 
 	@Override
@@ -46,7 +50,7 @@ public class Escola extends TodasAsEscolas {
 	}
 
 	public void setProfessor(Professor professor) {
-		Escola.professores.add(professor);
+		professores.add(professor);
 	}
 	
 	public Set<String> getNomeDosProfessores() {
@@ -61,6 +65,22 @@ public class Escola extends TodasAsEscolas {
 		this.nomeDosProfessores = nomeDosProfessores;
 	}
 	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Escola escola = (Escola) o;
+        return id == escola.id;
+    }
 	
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+	public Set<Escola> getEscolas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
