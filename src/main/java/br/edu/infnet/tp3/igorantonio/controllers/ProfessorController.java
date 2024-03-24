@@ -1,6 +1,7 @@
 package br.edu.infnet.tp3.igorantonio.controllers;
 
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,13 +27,13 @@ public class ProfessorController {
 	EscolaService escolaService;
 	
 	@GetMapping("/{idDaEscola}/professores")
-	List<Professor> obterProfessores(@PathVariable int idDaEscola) {
+	Set<Professor> obterProfessores(@PathVariable int idDaEscola) {
 		return professorService.getListaDeProfessoresByIdDaEscola(idDaEscola);
 	}
 	
 	@PostMapping("/{idDaEscola}/professores")
 	void incluirProfessor(@PathVariable int idDaEscola, @RequestBody Professor professor) {
-		escolaService.getEscolaByIdEspecifico(idDaEscola).setProfessor(professor);
+		professorService.incluirProfessor(idDaEscola, professor);
 	}
 	
 	@DeleteMapping("/{idDaEscola}/{idDoProfessor}")
