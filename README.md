@@ -1,6 +1,6 @@
 [README EM PT-BR](https://github.com/IgorAntonio22/Integration-with-External-API-and-Creation-of-Custom-Services-Spring/blob/master/README-PTBR.md)
 
-## Consumed School API: [https://simcaq.c3sl.ufpr.br/doc/#obter-todas-as-escolas](https://simcaq.c3sl.ufpr.br/doc/#obter-todas-as-escolas)
+### Consumed School API: [https://simcaq.c3sl.ufpr.br/doc/#obter-todas-as-escolas](https://simcaq.c3sl.ufpr.br/doc/#obter-todas-as-escolas)
 
 ### Project Update with a Restful WEB API
 
